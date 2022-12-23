@@ -1,0 +1,31 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+STRARRAY DB 'HELLO WORLD!!$'
+
+.CODE
+MAIN PROC
+MOV AX,@DATA
+MOV DS, AX
+
+LEA DX,STRARRAY
+CALL USER
+   
+         
+         
+         
+         
+MOV AH,4CH
+MOV AL,00H
+INT 21H         
+    
+    
+MAIN ENDP
+
+USER PROC
+    MOV AH,09H
+    INT 21H
+    RET
+    
+USER ENDP
+END MAIN
